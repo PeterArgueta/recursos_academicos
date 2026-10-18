@@ -146,75 +146,8 @@ T_n(t)=A_n\cos\left(\frac{an^2\pi^2}{L^2}t\right)
 A_n\cos\left(\frac{an^2\pi^2}{L^2}t\right)
 +B_n\sin\left(\frac{an^2\pi^2}{L^2}t\right)
 \right]\sin\left(\frac{n\pi x}{L}\right).\]</div></div>
-<p>Como la ecuación es lineal y homogénea, el principio de superposición permite formar la serie</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{
-u(x,t)=\sum_{n=1}^{\infty}
-\left[
-A_n\cos\left(\frac{an^2\pi^2}{L^2}t\right)
-+B_n\sin\left(\frac{an^2\pi^2}{L^2}t\right)
-\right]\sin\left(\frac{n\pi x}{L}\right).
-}\]</div></div>
-<h3>6. Primera condición inicial: determinación de \(A_n\)</h3>
-<p>Utilizamos \(u(x,0)=f(x)\). Sustituyendo \(t=0\) en la serie, y considerando \(\cos(0)=1\), \(\sin(0)=0\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[f(x)=\sum_{n=1}^{\infty}A_n\sin\left(\frac{n\pi x}{L}\right).\]</div></div>
-<p>Esta expresión es la serie de Fourier de senos de \(f(x)\) en \((0,L)\).</p>
-<p>Multiplicamos por \(\sin(m\pi x/L)\) e integramos entre \(0\) y \(L\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\int_0^L f(x)\sin\left(\frac{m\pi x}{L}\right)\,dx
-=
-\sum_{n=1}^{\infty}A_n
-\int_0^L
-\sin\left(\frac{n\pi x}{L}\right)
-\sin\left(\frac{m\pi x}{L}\right)\,dx.\]</div></div>
-<p>Por la propiedad de ortogonalidad,</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\int_0^L
-\sin\left(\frac{n\pi x}{L}\right)
-\sin\left(\frac{m\pi x}{L}\right)\,dx
-=
-\begin{cases}
-0,&amp;m\ne n,\\[3pt]
-\dfrac{L}{2},&amp;m=n.
-\end{cases}\]</div></div>
-<p>Por tanto,</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\int_0^L f(x)\sin\left(\frac{m\pi x}{L}\right)\,dx
-=\frac{L}{2}A_m.\]</div></div>
-<p>Despejando y reemplazando \(m\) por \(n\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{
-A_n=\frac{2}{L}\int_0^L
-f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.
-}\]</div></div>
-<h3>7. Segunda condición inicial: determinación de \(B_n\)</h3>
-<p>Ahora utilizamos \(u_t(x,0)=g(x)\).</p>
-<p>Derivando la serie respecto del tiempo:</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\begin{aligned}
-\frac{\partial u}{\partial t}(x,t)
-=\sum_{n=1}^{\infty}\Bigg[
-&amp;-\frac{an^2\pi^2}{L^2}A_n
-\sin\left(\frac{an^2\pi^2}{L^2}t\right)\\
-&amp;+\frac{an^2\pi^2}{L^2}B_n
-\cos\left(\frac{an^2\pi^2}{L^2}t\right)
-\Bigg]\sin\left(\frac{n\pi x}{L}\right).
-\end{aligned}\]</div></div>
-<p>Al evaluar en \(t=0\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[g(x)=\sum_{n=1}^{\infty}
-\frac{an^2\pi^2}{L^2}B_n
-\sin\left(\frac{n\pi x}{L}\right).\]</div></div>
-<p>Multiplicamos por \(\sin(m\pi x/L)\) e integramos entre \(0\) y \(L\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\begin{aligned}
-\int_0^L g(x)\sin\left(\frac{m\pi x}{L}\right)\,dx
-=\sum_{n=1}^{\infty}\frac{an^2\pi^2}{L^2}B_n
-\int_0^L
-\sin\left(\frac{n\pi x}{L}\right)
-\sin\left(\frac{m\pi x}{L}\right)\,dx.
-\end{aligned}\]</div></div>
-<p>La ortogonalidad elimina todos los términos excepto \(n=m\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\int_0^L g(x)\sin\left(\frac{m\pi x}{L}\right)\,dx
-=\frac{am^2\pi^2}{L^2}B_m\frac{L}{2}.\]</div></div>
-<p>Despejando y reemplazando \(m\) por \(n\):</p>
-<div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{
-B_n=\frac{2L}{an^2\pi^2}
-\int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.
-}\]</div></div>
-<h3>8. Solución final</h3>
+<p>Como la ecuación es lineal y homogénea, el principio de superposición permite sumar los modos obtenidos.</p>
+<h3>6. Solución final</h3>
 <p>La solución de la ecuación diferencial parcial de cuarto orden es</p>
 <div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{
 \begin{aligned}
@@ -225,7 +158,7 @@ u(x,t)=\sum_{n=1}^{\infty}
 \Bigg]\sin\left(\frac{n\pi x}{L}\right),
 \end{aligned}
 }\]</div></div>
-<p>donde</p>
+<p>donde los coeficientes se toman directamente de las fórmulas de Fourier para las condiciones iniciales:</p>
 <div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{
 A_n=\frac{2}{L}\int_0^L
 f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
@@ -252,7 +185,7 @@ g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx,
 =-\left(\frac{n\pi}{L}\right)^2u_n,\]</div></div>
 <p>por lo que también se satisfacen \(u_{n,xx}(0,t)=u_{n,xx}(L,t)=0\).</p>
 <h3>Condiciones iniciales</h3>
-<p>Al evaluar la serie en \(t=0\), obtenemos la serie de Fourier de senos de \(f(x)\). Al derivar con respecto a \(t\) y evaluar en \(t=0\), obtenemos la serie de Fourier de senos de \(g(x)\). Los coeficientes calculados garantizan ambas condiciones iniciales bajo las hipótesis usuales de convergencia y regularidad.</p>
+<p>Al evaluar la serie en \(t=0\), obtenemos la serie de Fourier de senos de \(f(x)\). Al derivar con respecto a \(t\) y evaluar en \(t=0\), obtenemos la serie de Fourier de senos de \(g(x)\). Estas fórmulas permiten recuperar ambas condiciones iniciales bajo las hipótesis usuales de convergencia y regularidad.</p>
 <p>Las frecuencias naturales satisfacen</p>
 <div class="math-block"><div class="math-scroll" tabindex="0" role="region" aria-label="Ecuación matemática; puede desplazarse horizontalmente">\[\boxed{\omega_n=n^2\omega_1.}\]</div></div>
 <p>Esto expresa que la frecuencia angular del modo \(n\) es proporcional a \(n^2\).</p></div></details></article></div><div class="toolbar" data-pagefind-ignore><button data-open-all>Mostrar todas las soluciones</button><button data-close-all>Ocultar todas las soluciones</button></div><script type="module">var e=[...document.querySelectorAll(`.problem`)],t=document.querySelector(`#buscar`),n=document.querySelector(`#nivel`),r=e=>e.normalize(`NFD`).replace(/[\u0300-\u036f]/g,``).toLowerCase();function i(){let i=0;e.forEach(e=>{e.hidden=!!(n?.value&&e.dataset.level!==n.value||t?.value&&!r(e.dataset.search).includes(r(t.value))),e.hidden||i++});let a=document.querySelector(`#resultados`);a&&(a.textContent=`${i} ejercicio${i===1?``:`s`}`);let o=document.querySelector(`#vacio`);o&&(o.hidden=i!==0),document.querySelectorAll(`[data-print]`).forEach(e=>e.disabled=i===0)}t?.addEventListener(`input`,i),n?.addEventListener(`change`,i),i(),document.querySelector(`[data-open-all]`)?.addEventListener(`click`,()=>e.filter(e=>!e.hidden).forEach(e=>e.querySelector(`details`).open=!0)),document.querySelector(`[data-close-all]`)?.addEventListener(`click`,()=>e.forEach(e=>e.querySelector(`details`).open=!1)),document.querySelectorAll(`[data-solution]`).forEach(e=>e.addEventListener(`toggle`,()=>{e.querySelector(`summary`).textContent=e.open?`Ocultar solución`:`Ver solución`}));var a=null;function o(){a||(a=e.map(e=>[e.querySelector(`details`),e.querySelector(`details`).open]),document.body.dataset.printMode||(document.body.dataset.printMode=`questions`),document.body.dataset.printMode===`solutions`&&e.filter(e=>!e.hidden).forEach(e=>e.querySelector(`details`).open=!0))}function s(){a?.forEach(([e,t])=>e.open=t),a=null,delete document.body.dataset.printMode}document.querySelectorAll(`[data-print]`).forEach(e=>e.addEventListener(`click`,()=>{document.body.dataset.printMode=e.dataset.print,o(),window.print()})),window.addEventListener(`beforeprint`,o),window.addEventListener(`afterprint`,s);function c(){let e=document.getElementById(decodeURIComponent(location.hash.slice(1)));e?.classList.contains(`problem`)&&e.hidden&&(t&&(t.value=``),n&&(n.value=``),i(),e.scrollIntoView())}window.addEventListener(`hashchange`,c),c();</script><p data-pagefind-ignore class="edit-page"><a href="https://notas-de-clase-admin.onrender.com/admin/?kind=problemas&amp;id=edp-viga-simplemente-apoyada&amp;curso=edp">Editar esta página</a></p></main><footer class="footer" data-pagefind-ignore><p class="foot-links">[<a href="/recursos_academicos/">Inicio</a>]  [<a href="/recursos_academicos/edp/">EDP</a>] [<a href="/recursos_academicos/fisica-iv/">Física IV</a>]</p><div>© 2026 Peter Argueta · Notas de clase</div></footer><script type="module">(()=>{let e=new Set,t=e=>{let t=e.scrollWidth>e.clientWidth+1;e.parentElement.dataset.wide=String(t),e.tabIndex=t?0:-1},n=typeof ResizeObserver==`function`?new ResizeObserver(e=>e.forEach(e=>t(e.target))):null;window.setupMathScrolling=(r=document)=>{for(let t of e)t.isConnected||(n?.unobserve(t),e.delete(t));r.querySelectorAll(`.math-scroll`).forEach(r=>{e.has(r)||(e.add(r),n?.observe(r)),t(r)})},window.addEventListener(`resize`,()=>e.forEach(t)),document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,()=>window.setupMathScrolling(),{once:!0}):window.setupMathScrolling()})();var e=document.querySelector(`.mobile-nav`);e?.addEventListener(`click`,()=>{let t=e.getAttribute(`aria-expanded`)!==`true`;e.setAttribute(`aria-expanded`,String(t)),document.querySelector(`#navlinks`)?.classList.toggle(`expanded`,t)}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&document.querySelectorAll(`.nav-dropdown[open]`).forEach(e=>{e.removeAttribute(`open`),e.querySelector(`summary`)?.focus()})});</script></body></html>
