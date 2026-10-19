@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ecuación de Laplace · Notas de clase</title><link rel="stylesheet" href="/recursos_academicos/_astro/Base.C5RtAhwU.css"><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><style>.notes{max-width:850px;margin:14px auto;padding:20px;line-height:1.6;overflow-wrap:anywhere}.notes h2{margin-top:28px;font-size:21px}.notes h3{margin-top:24px;font-size:18px}.notes p,.notes li{font-size:16px}.notes nav{display:flex;gap:14px;flex-wrap:wrap}.notes .math-block{overflow-x:auto;max-width:100%;padding:10px 0}.notes mjx-container{max-width:none}</style></head><body><main id="main-content" class="page notes"><nav><a href="/recursos_academicos/edp/">EDP</a> · <span>Ejercicios: próximos a incorporarse</span></nav><h1>Ecuación de Laplace · Notas teóricas</h1><h2>Notas</h2>
+<h3>Estado estacionario</h3>
+<p>La <strong>ecuación de Laplace</strong> modela una distribución de temperatura estacionaria sin fuentes internas, o un potencial electrostático. En coordenadas rectangulares:</p>
+<div class="math-block">\[\boxed{u_{xx}+u_{yy}=0}.\]</div>
+<p>A diferencia de las ecuaciones de calor y onda, aquí no aparece el tiempo. La solución depende de las condiciones de frontera, que pueden ser de Dirichlet (valor conocido), Neumann (derivada normal conocida) o mixtas.</p>
+<h3>Separación de variables en una placa rectangular</h3>
+<p>Sea \(0&lt;x&lt;L\), \(0&lt;y&lt;H\) y \(u(x,y)=X(x)Y(y)\). Entonces</p>
+<div class="math-block">\[\frac{X''}{X}=-\frac{Y''}{Y}=-\lambda,\]</div>
+<p>y las EDO separadas son</p>
+<div class="math-block">\[X''+\lambda X=0,\qquad Y''-\lambda Y=0.\]</div>
+<p>Para \(u(0,y)=u(L,y)=u(x,0)=0\) y \(u(x,H)=f(x)\) se obtiene</p>
+<div class="math-block">\[X_n(x)=\sin\left(\frac{n\pi x}{L}\right),\qquad
+Y_n(y)=\sinh\left(\frac{n\pi y}{L}\right).\]</div>
+<p>La solución es</p>
+<div class="math-block">\[\boxed{u(x,y)=\sum_{n=1}^{\infty}b_n
+\frac{\sinh(n\pi y/L)}{\sinh(n\pi H/L)}
+\sin\left(\frac{n\pi x}{L}\right),}\]</div>
+<p>donde los coeficientes se obtienen de la serie de Fourier de senos de \(f\):</p>
+<div class="math-block">\[\boxed{b_n=\frac{2}{L}\int_0^L f(x)
+\sin\left(\frac{n\pi x}{L}\right)\,dx.}\]</div>
+<h3>Ejemplo resuelto</h3>
+<p>Considere \(0&lt;x&lt;\pi\), \(0&lt;y&lt;1\), con tres lados a temperatura cero y</p>
+<div class="math-block">\[u(x,1)=\sin x.\]</div>
+<p>La condición superior solo excita el primer modo:</p>
+<div class="math-block">\[\boxed{u(x,y)=\frac{\sinh y}{\sinh 1}\sin x.}\]</div>
+<p>Se comprueba que \(u_{xx}=-u\) y \(u_{yy}=u\), por lo que se satisface la ecuación de Laplace, además de las cuatro condiciones de frontera.</p>
+<h3>Condiciones de Neumann y modo cero</h3>
+<p>Cuando los bordes verticales están aislados, las eigenfunciones espaciales suelen ser cosenos. Es necesario incluir el <strong>modo de eigenvalor cero</strong>, que puede producir un término lineal en \(y\). Para condiciones puramente de Neumann, el problema requiere compatibilidad de flujo y una solución puede ser única solo salvo una constante.</p>
+<p>Referencia temática: Zill y Cullen, séptima edición, sección 12.5. Redacción y ejemplo originales.</p></main></body></html>
