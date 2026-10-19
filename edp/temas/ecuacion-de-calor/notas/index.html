@@ -1,0 +1,25 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ecuación de calor · Notas de clase</title><link rel="stylesheet" href="/recursos_academicos/_astro/Base.C5RtAhwU.css"><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><style>.notes{max-width:850px;margin:14px auto;padding:20px;line-height:1.6;overflow-wrap:anywhere}.notes h2{margin-top:28px;font-size:21px}.notes h3{margin-top:24px;font-size:18px}.notes p,.notes li{font-size:16px}.notes nav{display:flex;gap:14px;flex-wrap:wrap}.notes .math-block{overflow-x:auto;max-width:100%;padding:10px 0}.notes mjx-container{max-width:none}</style></head><body><main id="main-content" class="page notes"><nav><a href="/recursos_academicos/edp/">EDP</a> · <a href="/recursos_academicos/edp/temas/ecuacion-de-calor/ejercicios/">Ejercicios con solución</a></nav><h1>Ecuación de calor · Notas teóricas</h1><h2>Notas</h2>
+<h3>Interpretación física</h3>
+<p>La temperatura \(u(x,t)\) en una varilla homogénea de longitud \(L\) satisface, sin fuentes de calor y con propiedades constantes, la <strong>ecuación de calor</strong></p>
+<div class="math-block">\[\boxed{u_t=k u_{xx}},\qquad k&gt;0,\quad 0&lt;x&lt;L,\ t&gt;0.\]</div>
+<p>La difusividad \(k\) tiene unidades de longitud al cuadrado entre tiempo. El modelo proviene de la conservación de energía y la ley de Fourier de conducción.</p>
+<p>Las condiciones de frontera pueden ser de <strong>Dirichlet</strong> (temperatura prescrita), <strong>Neumann</strong> (derivada normal prescrita; una frontera aislada tiene flujo cero) o <strong>Robin</strong> (intercambio de calor con el ambiente).</p>
+<h3>Separación de variables</h3>
+<p>Para extremos a temperatura cero, \(u(0,t)=u(L,t)=0\), proponemos \(u(x,t)=X(x)T(t)\):</p>
+<div class="math-block">\[\frac{X''}{X}=\frac{T'}{kT}=-\lambda.\]</div>
+<p>De aquí se obtienen</p>
+<div class="math-block">\[X''+\lambda X=0,\qquad T'+k\lambda T=0.\]</div>
+<p>Los valores propios y modos espaciales son</p>
+<div class="math-block">\[\lambda_n=\left(\frac{n\pi}{L}\right)^2,\qquad
+X_n(x)=\sin\left(\frac{n\pi x}{L}\right).\]</div>
+<p>La solución mediante una serie de Fourier de senos es</p>
+<div class="math-block">\[\boxed{u(x,t)=\sum_{n=1}^{\infty}A_n e^{-k(n\pi/L)^2t}\sin\left(\frac{n\pi x}{L}\right),}\]</div>
+<p>donde los coeficientes para \(u(x,0)=f(x)\) se toman de</p>
+<div class="math-block">\[\boxed{A_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.}\]</div>
+<h3>Ejemplo resuelto</h3>
+<p>Sea \(u_t=2u_{xx}\) en \(0&lt;x&lt;3\), con extremos a temperatura cero y \(u(x,0)=\sin(\pi x/3)\). La condición inicial corresponde al primer modo y por ello</p>
+<div class="math-block">\[\boxed{u(x,t)=e^{-2\pi^2t/9}\sin\left(\frac{\pi x}{3}\right).}\]</div>
+<p>El factor exponencial decrece y la varilla tiende al equilibrio térmico.</p>
+<h3>Más dimensiones y otras fronteras</h3>
+<p>Para una placa se utiliza \(u_t=k(u_{xx}+u_{yy})\). Si todo su borde está aislado, es indispensable conservar el modo constante de eigenvalor cero. Con temperaturas prescritas no nulas puede restarse una solución estacionaria antes de separar variables.</p>
+<p>Referencia temática: Zill y Cullen, séptima edición, secciones 12.2 y 12.3. Redacción y ejemplo originales.</p></main></body></html>
